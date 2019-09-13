@@ -1,7 +1,10 @@
 <template>
   <div class="hello">
     <h1>{{ msg | reverseMsg }}</h1>
-    <prop-component :count="count"></prop-component>
+    <prop-component
+      :count="count"
+      v-on:button-click="listChange"
+    ></prop-component>
     <!-- <prop-component :count.sync="count"></prop-component> -->
   </div>
 </template>
@@ -25,6 +28,10 @@ export default class HelloWorld extends Vue {
   @Prop() private msg!: string;
   // @PropSync('count') private innerCount!: number;
   private count = 101;
+
+  private listChange(val: number, event: any) {
+    console.log(val, event, 'emit ');
+  }
 }
 </script>
 
