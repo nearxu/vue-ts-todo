@@ -6,15 +6,18 @@
       v-on:button-click="listChange"
     ></prop-component>
     <!-- <prop-component :count.sync="count"></prop-component> -->
+    <router-component></router-component>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue, PropSync } from 'vue-property-decorator';
 import PropComponent from '@/components/prop-component.vue';
+import RouterComponent from '@/components/route-component.vue';
 @Component({
   components: {
     PropComponent,
+    RouterComponent,
   },
   filters: {
     reverseMsg: (val: string) =>
