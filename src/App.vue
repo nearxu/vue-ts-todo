@@ -9,6 +9,8 @@
       <br />
       <router-link to="/bar">bar</router-link>
       <br />
+      <router-link to="/list">list</router-link>
+      <br />
     </div>
     <router-view />
   </div>

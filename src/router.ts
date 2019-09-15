@@ -5,7 +5,18 @@ import Foo from './views/foo.vue';
 import Bar from './views/bar.vue';
 import BarChild from './views/bar-child.vue';
 import FooChild from '@/views/foo-child.vue';
+import Detail from '@/components/before-detroy/b.vue';
+import ListComponent from '@/components/before-detroy/a.vue';
+import Component from 'vue-class-component';
+
 Vue.use(Router);
+
+// not call
+// Component.registerHooks([
+//   'beforeRouteEnter', //进入路由之前
+//   'beforeRouteLeave', //离开路由之前
+//   'beforeRouteUpdate',
+// ]);
 
 export default new Router({
   mode: 'history',
@@ -15,6 +26,22 @@ export default new Router({
       path: '/',
       name: 'home',
       component: Home,
+    },
+    {
+      path: '/list',
+      name: 'list',
+      component: ListComponent,
+      children: [
+        {
+          path: '',
+          redirect: 'a',
+        },
+        {
+          path: '/list/:id',
+          name: 'detail',
+          component: Detail,
+        },
+      ],
     },
     {
       path: '/foo',
